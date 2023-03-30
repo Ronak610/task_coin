@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:installed_apps/app_info.dart';
 
 import '../Modal/News_Modal.dart';
 

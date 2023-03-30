@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:installed_apps/app_info.dart';
+import 'package:installed_apps/installed_apps.dart';
 import 'package:task_coing/App/Screen/Game_Screen/Controller/Game_Controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Task_Page extends StatefulWidget {
   const Task_Page({Key? key}) : super(key: key);
@@ -13,6 +16,8 @@ class Task_Page extends StatefulWidget {
 
 class _Task_PageState extends State<Task_Page> {
   Game_Controller game_controller = Get.put(Game_Controller());
+  List<AppInfo>? installedApps;
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +67,8 @@ class _Task_PageState extends State<Task_Page> {
                       alignment: Alignment.center,
                       child: InkWell(
                         onTap: ()
-            {
-
+                        async {
+                         await  launchUrl(Uri.parse(game_controller.l1[index].url!));
                         },
                         child: Text(
                           "Get ",
