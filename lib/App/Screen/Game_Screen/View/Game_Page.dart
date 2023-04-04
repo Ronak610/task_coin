@@ -19,9 +19,6 @@ class _Game_PageState extends State<Game_Page> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Game "),
-        ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

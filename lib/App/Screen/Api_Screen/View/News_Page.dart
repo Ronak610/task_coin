@@ -22,9 +22,6 @@ class _News_pageState extends State<News_page> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("News"),
-        ),
         body: FutureBuilder<List<NewsModal>?>(
           future: Api_http.api_http.news(),
           builder: (context, snapshot) {
@@ -33,6 +30,7 @@ class _News_pageState extends State<News_page> {
             } else if (snapshot.hasData) {
               news_controller.l1.value = snapshot.data!;
               return GridView.builder(
+                physics: BouncingScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1, mainAxisExtent: 310),
