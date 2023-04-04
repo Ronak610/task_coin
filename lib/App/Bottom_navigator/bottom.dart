@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_appavailability/flutter_appavailability.dart';
 import 'package:get/get.dart';
 import 'package:task_coing/App/Screen/Game_Screen/Controller/Game_Controller.dart';
-import 'package:task_coing/App/Screen/Game_Screen/Modal/game_Modal.dart';
+import 'package:task_coing/App/Screen/Game_Screen/Modal/Game_Modal.dart';
 
 import '../Screen/Game_Screen/View/Game_Page.dart';
 import '../Screen/Api_Screen/View/News_Page.dart';
-import '../Screen/Game_Screen/View/Task_page.dart';
+import '../Screen/task_Screen/Task_page.dart';
 
 class Bottom extends StatefulWidget {
   const Bottom({Key? key}) : super(key: key);
@@ -20,7 +20,6 @@ class _BottomState extends State<Bottom> {
   Game_Controller game_controller = Get.put(
     Game_Controller(),
   );
-  bool? isavailable;
 
   List l1 = [
     News_page(),
@@ -28,22 +27,21 @@ class _BottomState extends State<Bottom> {
     Game_Page(),
   ];
 
-  @override
-  void initState() {
-    super.initState();
-    check();
-  }
 
-  Future<void> check()  async {
-
-    for(var datalist in game_controller.l1){
-      var response = await AppAvailability.checkAvailability("${datalist.package}");.
-    if (response['app_name'] != null) {
-      isavailable = true;
-      game_controller.point.value =game_controller.point.value+datalist.coing!;
-    } else {
-      isavailable = false;
-    }
+  Future<void> check() async {
+    await AppAvailability.getInstalledApps();
+    print("===============> ${game_controller.l1.length}");
+    for (Game_Modal datalist in game_controller.l1) {
+      print("==============> ${datalist.package}");
+      AppAvailability.checkAvailability("${datalist.package}")
+          .catchError((error) {})
+          .then((value) {
+        print("============> $value");
+        if (value['app_name']!.isNotEmpty) {
+          game_controller.point.value =
+              game_controller.point.value + datalist.coing!;
+        } else {}
+      });
     }
   }
 
@@ -54,6 +52,8 @@ class _BottomState extends State<Bottom> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: Drawer(
+          ),
           actions: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
