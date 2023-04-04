@@ -1,113 +1,113 @@
-/// id : 6
-/// title : "Blade and Soul"
-/// thumbnail : "https://www.freetogame.com/g/6/thumbnail.jpg"
-/// short_description : "A free-to-play martial arts MMORPG that tasks players with learning combination attacks."
-/// game_url : "https://www.freetogame.com/open/blade-and-soul"
-/// genre : "MMORPG"
-/// platform : "PC (Windows)"
-/// publisher : "NCSoft"
-/// developer : "NCSoft"
-/// release_date : "2016-01-19"
-/// freetogame_profile_url : "https://www.freetogame.com/blade-and-soul"
+/// gID : "atme_001"
+/// gname : "Air Hockey"
+/// gUrl : "https://games.atmegame.com/play2083/games/air-hockey/?utm_source=Play2083G2K91u&utm_medium=Play2083G2K91u"
+/// gDesc : "Choose any from 3 levels: Easy, Medium and Hard and get ready to show off your intense hockey skills! Score your 15 points first before your opponent does to win! Make your goal from a perfect angle to be the best air hockey champion!"
+/// category : "Sports & Racing"
+/// thumbnail : "https://games.atmegame.com/play2083/images/air-hockey/thumb.png"
+/// small_wall : "https://games.atmegame.com/play2083/images/air-hockey/small-wall.png"
+/// wall : "https://games.atmegame.com/play2083/images/air-hockey/wall.png"
+/// gPlayed : "3,283,550"
+/// gStatus : "1"
+/// orientation : "portrait"
 
 class NewsModal {
   NewsModal({
-      num? id, 
-      String? title, 
+      String? gID, 
+      String? gname, 
+      String? gUrl, 
+      String? gDesc, 
+      String? category, 
       String? thumbnail, 
-      String? shortDescription, 
-      String? gameUrl, 
-      String? genre, 
-      String? platform, 
-      String? publisher, 
-      String? developer, 
-      String? releaseDate, 
-      String? freetogameProfileUrl,}){
-    _id = id;
-    _title = title;
+      String? smallWall, 
+      String? wall, 
+      String? gPlayed, 
+      String? gStatus, 
+      String? orientation,}){
+    _gID = gID;
+    _gname = gname;
+    _gUrl = gUrl;
+    _gDesc = gDesc;
+    _category = category;
     _thumbnail = thumbnail;
-    _shortDescription = shortDescription;
-    _gameUrl = gameUrl;
-    _genre = genre;
-    _platform = platform;
-    _publisher = publisher;
-    _developer = developer;
-    _releaseDate = releaseDate;
-    _freetogameProfileUrl = freetogameProfileUrl;
+    _smallWall = smallWall;
+    _wall = wall;
+    _gPlayed = gPlayed;
+    _gStatus = gStatus;
+    _orientation = orientation;
 }
 
   NewsModal.fromJson(dynamic json) {
-    _id = json['id'];
-    _title = json['title'];
+    _gID = json['gID'];
+    _gname = json['gname'];
+    _gUrl = json['gUrl'];
+    _gDesc = json['gDesc'];
+    _category = json['category'];
     _thumbnail = json['thumbnail'];
-    _shortDescription = json['short_description'];
-    _gameUrl = json['game_url'];
-    _genre = json['genre'];
-    _platform = json['platform'];
-    _publisher = json['publisher'];
-    _developer = json['developer'];
-    _releaseDate = json['release_date'];
-    _freetogameProfileUrl = json['freetogame_profile_url'];
+    _smallWall = json['small_wall'];
+    _wall = json['wall'];
+    _gPlayed = json['gPlayed'];
+    _gStatus = json['gStatus'];
+    _orientation = json['orientation'];
   }
-  num? _id;
-  String? _title;
+  String? _gID;
+  String? _gname;
+  String? _gUrl;
+  String? _gDesc;
+  String? _category;
   String? _thumbnail;
-  String? _shortDescription;
-  String? _gameUrl;
-  String? _genre;
-  String? _platform;
-  String? _publisher;
-  String? _developer;
-  String? _releaseDate;
-  String? _freetogameProfileUrl;
-NewsModal copyWith({  num? id,
-  String? title,
+  String? _smallWall;
+  String? _wall;
+  String? _gPlayed;
+  String? _gStatus;
+  String? _orientation;
+NewsModal copyWith({  String? gID,
+  String? gname,
+  String? gUrl,
+  String? gDesc,
+  String? category,
   String? thumbnail,
-  String? shortDescription,
-  String? gameUrl,
-  String? genre,
-  String? platform,
-  String? publisher,
-  String? developer,
-  String? releaseDate,
-  String? freetogameProfileUrl,
-}) => NewsModal(  id: id ?? _id,
-  title: title ?? _title,
+  String? smallWall,
+  String? wall,
+  String? gPlayed,
+  String? gStatus,
+  String? orientation,
+}) => NewsModal(  gID: gID ?? _gID,
+  gname: gname ?? _gname,
+  gUrl: gUrl ?? _gUrl,
+  gDesc: gDesc ?? _gDesc,
+  category: category ?? _category,
   thumbnail: thumbnail ?? _thumbnail,
-  shortDescription: shortDescription ?? _shortDescription,
-  gameUrl: gameUrl ?? _gameUrl,
-  genre: genre ?? _genre,
-  platform: platform ?? _platform,
-  publisher: publisher ?? _publisher,
-  developer: developer ?? _developer,
-  releaseDate: releaseDate ?? _releaseDate,
-  freetogameProfileUrl: freetogameProfileUrl ?? _freetogameProfileUrl,
+  smallWall: smallWall ?? _smallWall,
+  wall: wall ?? _wall,
+  gPlayed: gPlayed ?? _gPlayed,
+  gStatus: gStatus ?? _gStatus,
+  orientation: orientation ?? _orientation,
 );
-  num? get id => _id;
-  String? get title => _title;
+  String? get gID => _gID;
+  String? get gname => _gname;
+  String? get gUrl => _gUrl;
+  String? get gDesc => _gDesc;
+  String? get category => _category;
   String? get thumbnail => _thumbnail;
-  String? get shortDescription => _shortDescription;
-  String? get gameUrl => _gameUrl;
-  String? get genre => _genre;
-  String? get platform => _platform;
-  String? get publisher => _publisher;
-  String? get developer => _developer;
-  String? get releaseDate => _releaseDate;
-  String? get freetogameProfileUrl => _freetogameProfileUrl;
+  String? get smallWall => _smallWall;
+  String? get wall => _wall;
+  String? get gPlayed => _gPlayed;
+  String? get gStatus => _gStatus;
+  String? get orientation => _orientation;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['id'] = _id;
-    map['title'] = _title;
+    map['gID'] = _gID;
+    map['gname'] = _gname;
+    map['gUrl'] = _gUrl;
+    map['gDesc'] = _gDesc;
+    map['category'] = _category;
     map['thumbnail'] = _thumbnail;
-    map['short_description'] = _shortDescription;
-    map['game_url'] = _gameUrl;
-    map['genre'] = _genre;
-    map['platform'] = _platform;
-    map['publisher'] = _publisher;
-    map['developer'] = _developer;
-    map['release_date'] = _releaseDate;
-    map['freetogame_profile_url'] = _freetogameProfileUrl;
+    map['small_wall'] = _smallWall;
+    map['wall'] = _wall;
+    map['gPlayed'] = _gPlayed;
+    map['gStatus'] = _gStatus;
+    map['orientation'] = _orientation;
     return map;
   }
 

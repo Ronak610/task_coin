@@ -1,12 +1,14 @@
 import 'dart:convert';
 
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 import '../../App/Screen/Api_Screen/Modal/News_Modal.dart';
 
 class Api_http {
   Api_http._();
-  List select=[];
+
+  List select = [];
   static Api_http api_http = Api_http._();
 
   // * Api Create
@@ -22,8 +24,18 @@ class Api_http {
     );
     if (response.statusCode == 200) {
       List json = jsonDecode(response.body);
-     return json.map((e) =>NewsModal.fromJson(e)).toList();
+      return json.map((e) => NewsModal.fromJson(e)).toList();
     }
     return null;
+  }
+
+  Future<List<NewsModal>?> News() async {
+    var data = await rootBundle.loadString("assets/json/News.json");
+
+    // print("===========================$data");
+    List json = jsonDecode(data);
+    // print("===========================$json");
+
+    return json.map((e) => NewsModal.fromJson(e)).toList();
   }
 }
