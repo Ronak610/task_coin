@@ -14,39 +14,38 @@ class Splesh_Screen extends StatefulWidget {
 }
 
 class _Splesh_ScreenState extends State<Splesh_Screen> {
-
   @override
   void initState() {
     super.initState();
     IsLogin();
   }
-  void IsLogin() async
-  {
+
+  void IsLogin() async {
     bool? islogin = await shared_p.shared.checklogin();
-    Timer(Duration(seconds: 3),(){
-      if(islogin==false)
-      {
-        Get.offNamed('signin');
-      }
-      else{
+    Timer(Duration(seconds: 3), () {
+      if (islogin == false) {
+        Get.offNamed('Sign_In');
+      } else {
         Get.offNamed('bottom');
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Splesh_screen"),
-        ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Image.asset(
-              "assets/image/splesh.jpg",height: 300,
+              "assets/image/splesh.jpg",
+              height: 300,
               fit: BoxFit.cover,
             ),
+            // Row(
+            //   children: [Image.asset("assets/image/icon.png")],
+            // )
           ],
         ),
       ),

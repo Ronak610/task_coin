@@ -15,6 +15,7 @@ class _Profile_ScreenState extends State<Profile_Screen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.grey,
         body: Stack(alignment: Alignment.center, children: [
           Column(
             children: [
@@ -23,15 +24,11 @@ class _Profile_ScreenState extends State<Profile_Screen> {
                 width: MediaQuery.of(context).size.width,
                 color: Colors.redAccent,
               ),
-              Container(
-                height: MediaQuery.of(context).size.height - 360,
-                width: MediaQuery.of(context).size.width,
-                color: Colors.black12,
-                child: Column(
+               Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      height: 100,
+                      height: 150,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -39,30 +36,24 @@ class _Profile_ScreenState extends State<Profile_Screen> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.pinkAccent,
-                            ),
-                            SizedBox(height: 10,),
+                            Image.asset("assets/image/profile.png",height: 60,width: 80,),
+
                             Text("Invite Friends")
                           ],
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.pinkAccent,
-                            ),
-                            SizedBox(height: 10,),
+                            Image.asset("assets/image/history.png",height: 60,width: 80,),
+
+
                             Text("Income History")
                           ],
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.pinkAccent,
-                            ),
-                            SizedBox(height: 10,),
+                            Image.asset("assets/image/location.png",height: 60,width: 80,),
+
                             Text("Click History")
                           ],
                         ),
@@ -80,33 +71,29 @@ class _Profile_ScreenState extends State<Profile_Screen> {
                             InkWell(
                               onTap: (){
                                 shared_p.shared.alredylogin(false);
-                                Get.offNamed("signin");
+                                Get.offNamed("Sign_In");
                               },
-                              child: CircleAvatar(
-                                backgroundColor: Colors.pinkAccent,
-                              ),
+                              child: Image.asset("assets/image/logout.png",height: 60,width: 80,),
+
                             ),
-                            SizedBox(height: 10,),
                             Text("Log Out")
                           ],
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.pinkAccent,
-                            ),
-                            SizedBox(height: 10,),
+                            InkWell(onTap: (){
+                              Get.toNamed('feedback');
+                            },child: Image.asset("assets/image/email.png",height: 60,width: 80,)),
                             Text("Feedback"),
                           ],
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.pinkAccent,
-                            ),
-                            SizedBox(height: 10,),
+                            InkWell(onTap: (){
+                              Get.toNamed('setting');
+                            },child: Image.asset("assets/image/setting.png",height: 60,width: 80,)),
                             Text("Setting"),
                           ],
                         ),
@@ -114,7 +101,6 @@ class _Profile_ScreenState extends State<Profile_Screen> {
                     ),
                   ],
                 ),
-              )
             ],
           ),
           Padding(
