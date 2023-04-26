@@ -50,44 +50,48 @@ class _BottomState extends State<Bottom> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-            actions: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                 Lottie.asset("assets/json/coin.json",height:45 ),
-                  Obx(
-                    () => Text(
-                      "${game_controller.point}   ",
-                      style: TextStyle(color: Colors.black, fontSize: 20),
+        appBar: select == 3
+            ? PreferredSize(child: Text(""), preferredSize: Size.zero)
+            : AppBar(
+                actions: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Lottie.asset("assets/json/coin.json", height: 45),
+                        Obx(
+                          () => Text(
+                            "${game_controller.point}   ",
+                            style: TextStyle(color: Colors.black, fontSize: 20),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-            ],
-            backgroundColor: Colors.white,
-            title: select == 0
-                ? Text(
-                    "News",
-                    style: TextStyle(color: Colors.black),
-                  )
-                : select == 1
+                  ],
+                backgroundColor: Colors.white,
+                title: select == 0
                     ? Text(
-                        "Task",
+                        "News",
                         style: TextStyle(color: Colors.black),
                       )
-                    : select == 2
+                    : select == 1
                         ? Text(
-                            "Game",
+                            "Task",
                             style: TextStyle(color: Colors.black),
                           )
-                        : PreferredSize(
-                            child: Text(""), preferredSize: Size.zero)),
+                        : select == 2
+                            ? Text(
+                                "Game",
+                                style: TextStyle(color: Colors.black),
+                              )
+                            : PreferredSize(
+                                child: Text(""), preferredSize: Size.zero)),
         body: l1[select],
         bottomNavigationBar: BottomNavigationBar(
           unselectedItemColor: Colors.blueGrey,
           unselectedLabelStyle: TextStyle(color: Colors.blueGrey),
-          selectedItemColor: Colors.blueAccent,showSelectedLabels: true,showUnselectedLabels: true,
+          selectedItemColor: Colors.blueAccent,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
           selectedLabelStyle: TextStyle(color: Colors.blueAccent),
           currentIndex: select,
           onTap: (value) {

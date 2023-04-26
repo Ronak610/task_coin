@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class shared_p
@@ -21,6 +20,7 @@ class shared_p
     SharedPreferences srd = await SharedPreferences.getInstance();
     String? email = srd.getString('e1');
     String? password=srd.getString('p1');
+    print("======= =$email");
     return {'email':email,'password':password};
   }
 

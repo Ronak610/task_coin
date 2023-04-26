@@ -42,26 +42,32 @@ class _News_pageState extends State<News_page> {
                       width: MediaQuery.of(context).size.width,
                       margin: EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
                             "${news_controller.l1[index].gname}",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 25),
+                                fontWeight: FontWeight.bold, fontSize: 25,),
                           ),
+
+                          Text("${news_controller.l1[index].category}",  style: TextStyle(
+                               fontSize: 18),),
                           SizedBox(
                             height: 10,
                           ),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.network(
-                              "${news_controller.l1[index].thumbnail}",
-                              fit: BoxFit.fill,
-                              width: MediaQuery.of(context).size.width - 50,
-                              height: 200,
+                          Container(color: Colors.black,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.network(
+                                "${news_controller.l1[index].thumbnail}",
+                                fit: BoxFit.fill,
+                                width: MediaQuery.of(context).size.width - 50,
+                                height: 200,
+                              ),
                             ),
                           ),
-                          Text("${news_controller.l1[index].category}")
+
                         ],
                       ),
                     ),

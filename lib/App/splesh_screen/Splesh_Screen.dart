@@ -24,9 +24,9 @@ class _Splesh_ScreenState extends State<Splesh_Screen> {
     bool? islogin = await shared_p.shared.checklogin();
     Timer(Duration(seconds: 3), () {
       if (islogin == false) {
-        Get.offNamed('Sign_In');
+        Get.toNamed('Sign_In');
       } else {
-        Get.offNamed('bottom');
+        Get.toNamed('bottom');
       }
     });
   }
