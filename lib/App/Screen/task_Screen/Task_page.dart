@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:connection_notifier/connection_notifier.dart';
-import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -104,68 +103,186 @@ class _Task_PageState extends State<Task_Page> {
                               );
                             },
                           ),
-                          ListView.builder(
-                            physics: BouncingScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: game_controller.s1.length,
-                            itemBuilder: (context, index) {
-                              return Card(
-                                child: Container(
-                                  height: 100,
-                                  margin: EdgeInsets.all(10),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(15.0),
-                                    child: Row(
-                                      children: [
-                                        Image.network(
-                                          "${game_controller.s1[index].image}",
-                                          height: 60,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            "${game_controller.s1[index].name}",
-                                            style: TextStyle(fontSize: 20),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 5,
-                                        ),
-                                        Container(
-                                          height: 30,
-                                          width: 100,
-                                          decoration: BoxDecoration(
-                                            color: Colors.green.shade400,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(50),
-                                            ),
-                                          ),
-                                          alignment: Alignment.center,
-                                          child: InkWell(
-                                            onTap: () async {
-                                              game_controller.g1.value.package =
-                                                  game_controller
-                                                      .s1[index].package!;
-                                              await launchUrl(Uri.parse(
-                                                  game_controller.s1[index].url!));
-                                            },
-                                            child: Text(
-                                              "${game_controller.s1[index].coing}  Get ",
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                        },
-                      ),
+                      //     ListView.builder(
+                      //       physics: BouncingScrollPhysics(),
+                      //       shrinkWrap: true,
+                      //       itemCount: game_controller.s1.length,
+                      //       itemBuilder: (context, index) {
+                      //         return Card(
+                      //           child: Container(
+                      //             height: 100,
+                      //             margin: EdgeInsets.all(10),
+                      //             child: Padding(
+                      //               padding: const EdgeInsets.all(15.0),
+                      //               child: Row(
+                      //                 children: [
+                      //                   Image.network(
+                      //                     "${game_controller.s1[index].image}",
+                      //                     height: 60,
+                      //                   ),
+                      //                   SizedBox(
+                      //                     width: 20,
+                      //                   ),
+                      //                   Expanded(
+                      //                     child: Text(
+                      //                       "${game_controller.s1[index].name}",
+                      //                       style: TextStyle(fontSize: 20),
+                      //                     ),
+                      //                   ),
+                      //                   SizedBox(
+                      //                     width: 5,
+                      //                   ),
+                      //                   Container(
+                      //                     height: 30,
+                      //                     width: 100,
+                      //                     decoration: BoxDecoration(
+                      //                       color: Colors.green.shade400,
+                      //                       borderRadius: BorderRadius.all(
+                      //                         Radius.circular(50),
+                      //                       ),
+                      //                     ),
+                      //                     alignment: Alignment.center,
+                      //                     child: InkWell(
+                      //                       onTap: () async {
+                      //                         game_controller.g1.value.package =
+                      //                             game_controller
+                      //                                 .s1[index].package!;
+                      //                         await launchUrl(Uri.parse(
+                      //                             game_controller.s1[index].url!));
+                      //                       },
+                      //                       child: Text(
+                      //                         "${game_controller.s1[index].coing}  Get ",
+                      //                         style: TextStyle(
+                      //                             fontSize: 20,
+                      //                             fontWeight: FontWeight.bold),
+                      //                       ),
+                      //                     ),
+                      //                   )
+                      //                 ],
+                      //               ),
+                      //             ),
+                      //           ),
+                      //         );
+                      //
+                      //     return Card(
+                      //       child: Container(
+                      //         height: 100,
+                      //         margin: EdgeInsets.all(10),
+                      //         child: Padding(
+                      //           padding: const EdgeInsets.all(15.0),
+                      //           child: Row(
+                      //             children: [
+                      //               Image.network(
+                      //                 "${game_controller.l1[index].image}",
+                      //                 height: 60,
+                      //               ),
+                      //               SizedBox(
+                      //                 width: 20,
+                      //               ),
+                      //               Expanded(
+                      //                 child: Text(
+                      //                   "${game_controller.l1[index].name}",
+                      //                   style: TextStyle(fontSize: 20),
+                      //                 ),
+                      //               ),
+                      //               SizedBox(
+                      //                 width: 5,
+                      //               ),
+                      //               Container(
+                      //                 height: 30,
+                      //                 width: 100,
+                      //                 decoration: BoxDecoration(
+                      //                   color: Colors.green.shade400,
+                      //                   borderRadius: BorderRadius.all(
+                      //                     Radius.circular(50),
+                      //                   ),
+                      //                 ),
+                      //                 alignment: Alignment.center,
+                      //                 child: InkWell(
+                      //                   onTap: () async {
+                      //                     game_controller.g1.value.package =
+                      //                         game_controller
+                      //                             .l1[index].package!;
+                      //                     await launchUrl(Uri.parse(
+                      //                         game_controller.l1[index].url!));
+                      //                   },
+                      //                   child: Text(
+                      //                     "${game_controller.l1[index].coing}  Get ",
+                      //                     style: TextStyle(
+                      //                         fontSize: 20,
+                      //                         fontWeight: FontWeight.bold),
+                      //                   ),
+                      //                 ),
+                      //               )
+                      //             ],
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     );
+                      //   },
+                      // ),
+                      // ListView.builder(
+                      //   physics: BouncingScrollPhysics(),
+                      //   shrinkWrap: true,
+                      //   itemCount: game_controller.s1.length,
+                      //   itemBuilder: (context, index) {
+                      //     return Card(
+                      //       child: Container(
+                      //         height: 100,
+                      //         margin: EdgeInsets.all(10),
+                      //         child: Padding(
+                      //           padding: const EdgeInsets.all(15.0),
+                      //           child: Row(
+                      //             children: [
+                      //               Image.network(
+                      //                 "${game_controller.s1[index].image}",
+                      //                 height: 60,
+                      //               ),
+                      //               SizedBox(
+                      //                 width: 20,
+                      //               ),
+                      //               Expanded(
+                      //                 child: Text(
+                      //                   "${game_controller.s1[index].name}",
+                      //                   style: TextStyle(fontSize: 20),
+                      //                 ),
+                      //               ),
+                      //               SizedBox(
+                      //                 width: 5,
+                      //               ),
+                      //               Container(
+                      //                 height: 30,
+                      //                 width: 100,
+                      //                 decoration: BoxDecoration(
+                      //                   color: Colors.green.shade400,
+                      //                   borderRadius: BorderRadius.all(
+                      //                     Radius.circular(50),
+                      //                   ),
+                      //                 ),
+                      //                 alignment: Alignment.center,
+                      //                 child: InkWell(
+                      //                   onTap: () async {
+                      //                     game_controller.g1.value.package =
+                      //                         game_controller
+                      //                             .s1[index].package!;
+                      //                     await launchUrl(Uri.parse(
+                      //                         game_controller.s1[index].url!));
+                      //                   },
+                      //                   child: Text(
+                      //                     "${game_controller.s1[index].coing}  Get ",
+                      //                     style: TextStyle(
+                      //                         fontSize: 20,
+                      //                         fontWeight: FontWeight.bold),
+                      //                   ),
+                      //                 ),
+                      //               )
+                      //             ],
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     );
+                      //   },
+                      // ),
                     ],
                   ),
                 ),

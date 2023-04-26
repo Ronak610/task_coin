@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:task_coing/Untils/shared%20preferences/shared.dart';
 
 class Sign_In extends StatefulWidget {
@@ -58,7 +57,7 @@ class _Sign_InState extends State<Sign_In> {
                     if (value!.isEmpty) {
                       return "Please Enter The Email Address";
                     } else if (!RegExp(
-                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                         .hasMatch(value)) {
                       return "Please Enter Valid Email";
                     }

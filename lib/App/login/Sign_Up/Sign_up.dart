@@ -153,7 +153,11 @@ class _Sign_UPState extends State<Sign_UP> {
                     shared_p.shared
                         .createlogin(txtemail.text, txtpassword.text);
                   }
+
                   Get.back();
+
+                  Get.toNamed('/');
+
                   Get.snackbar("Login in Successfully", "Tap to View");
                 },
                 child: Text("Sign In"),
